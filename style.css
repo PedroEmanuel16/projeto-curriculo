@@ -1,0 +1,102 @@
+/* ==========================================================
+   Currículo - folha de estilos
+   ========================================================== */
+
+/* ---------- Variáveis ---------- */
+:root {
+  --sans: "IBM Plex Sans", sans-serif;
+  --mono: "IBM Plex Mono", monospace;
+
+  --preto: #000;
+  --amarelo: #F0D62E;
+  --cinza: #808080;
+  --cinza-claro: #BFBFBF;
+  --linha: #DFDFDF;
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+[v-cloak] { display: none; }
+
+body {
+  background: #fff;
+  color: var(--preto);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 2;
+}
+
+section { margin-bottom: 48px; }
+
+.pagina {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 88px 48px 96px;
+}
+
+/* ---------- Layout em 12 colunas ---------- */
+.grade {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 32px;
+}
+.principal { grid-column: 1 / 9; }
+.lateral   { grid-column: 9 / 13; padding-left: 32px; }
+
+/* ---------- Cabeçalho ---------- */
+.topo {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 64px;
+}
+.logo {
+  width: 120px;
+  height: 120px;
+  display: grid;
+  place-items: center;
+  background: var(--amarelo);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
+}
+.nome  { font: 600 20px/1.4 var(--mono); }
+.cargo { font: 400 16px/1.4 var(--mono); color: var(--cinza); }
+
+/* ---------- Títulos de seção ---------- */
+.rotulo {
+  margin-bottom: 24px;
+  color: var(--cinza-claro);
+  font: 400 12px/1 var(--mono);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* ---------- Itens (experiência e educação) ---------- */
+.item { margin-bottom: 40px; }
+.item h3 { font-size: 16px; font-weight: 700; line-height: 1.6; }
+.item p { font-size: 16px; }
+.item .subtitulo { font: 400 16px/1.6 var(--mono); color: var(--cinza); }
+
+/* ---------- Contato ---------- */
+.contato p { font-size: 14px; line-height: 2; }
+.contato strong { font-family: var(--mono); font-weight: 700; }
+
+/* ---------- Rodapé ---------- */
+.rodape {
+  grid-column: 1 / 9;
+  padding-top: 32px;
+  border-top: 1px solid var(--linha);
+  color: var(--cinza-claro);
+  font: 400 12px/1 var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ---------- Responsivo: tablet e celular (coluna única) ---------- */
+@media (max-width: 900px) {
+  .pagina { padding: 40px 24px 64px; }
+  .topo { flex-direction: column; align-items: flex-start; }
+  .principal, .lateral, .rodape { grid-column: 1 / -1; }
+  .lateral { padding-left: 0; }
+}
